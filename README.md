@@ -1,6 +1,6 @@
 # Sweet and Savory Application
 
-#### An application using a many-to-many relationship and Identity authorization/authentication to track relationships with a restaurants treats and flavors
+#### An application using a many-to-many relationship and Identity authorization/authentication to track relationships with a restaurant's treats and flavors
 
 #### By **Laurie Waller**
 
