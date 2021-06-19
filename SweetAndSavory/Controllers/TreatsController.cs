@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity; 
 using System.Threading.Tasks; 
 using System.Security.Claims; 
+using System;
 
 namespace SweetAndSavory.Controllers
 {
@@ -24,9 +25,14 @@ namespace SweetAndSavory.Controllers
     }
 
     [AllowAnonymous]
-    public ActionResult Index()
+    public ActionResult Index(string searchString)
     {
       List<Treat> model = _db.Treats.ToList();
+      if (!String.IsNullOrEmpty(searchString))
+      {
+        model = _db.Treats.Where(s => s.Name.Contains(searchString)).ToList();
+      }
+      
       return View(model);
     }
 
