@@ -4,23 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Authorization;  // allows us to Flavorize users
-using Microsoft.AspNetCore.Identity; // allows this controller to interact with users from the db
-using System.Threading.Tasks; // allows us to call async methods
-using System.Security.Claims; // allows claim based Flavorization
+using Microsoft.AspNetCore.Authorization;  
+using Microsoft.AspNetCore.Identity; 
+using System.Threading.Tasks; 
+using System.Security.Claims; 
 
 namespace SweetAndSavory.Controllers
 {
-  [Authorize] //This allows access to the BooksController only if a user is logged in. We'll add this attribute to a controller whenever we want to limit its access to signed-in users. This is just one application of Flavorization.
+  [Authorize]
   public class FlavorsController : Controller
   {
     private readonly SweetAndSavoryContext _db;
-    private readonly UserManager<ApplicationUser> _userManager; //We need an instance of UserManager to work with signed-in users. 
+    private readonly UserManager<ApplicationUser> _userManager; 
 
     public FlavorsController(UserManager<ApplicationUser> userManager, SweetAndSavoryContext db)
     {
       _userManager = userManager;
-      _db = db; //We also include a constructor to instantiate private readonly instances of the database and the UserManager.
+      _db = db; 
     }
 
     [AllowAnonymous]
@@ -71,14 +71,14 @@ namespace SweetAndSavory.Controllers
       return RedirectToAction("Index");
     }
 
-    // [HttpPost]
-    // public ActionResult DeleteBook(int joinId)
-    // {
-    //   var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
-    //   _db.FlavorTreat.Remove(joinEntry);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult DeleteTreat(int joinId)
+    {
+      var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreat.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     public ActionResult Edit(int id)
     {
