@@ -29,7 +29,7 @@ This application implements a many-to-many relationship and allows the user to t
 
 ## Database Structure 
 
-![image](https://user-images.githubusercontent.com/57472714/120902302-6f019980-c5f4-11eb-892f-f55aec0df076.png)
+![image](https://user-images.githubusercontent.com/57472714/122630074-22976e80-d076-11eb-83b8-de70ad32a5cb.png)
 
 ## Prerequisites
 * [.Net Framework](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-2.2.106-macos-x64-installer)
@@ -40,6 +40,7 @@ This application implements a many-to-many relationship and allows the user to t
 * Entity Framework Core
   `dotnet add package Microsoft.EntityFrameworkCore -v 5.0.0`
   `dotnet add package Pomelo.EntityFrameworkCore.MySql -v 5.0.0-alpha.2`
+* Identity `dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore -v 5.0.0` 
 
 ## Setup/Installation Requirements
 
