@@ -4,7 +4,7 @@
 @using SweetAndSavory.Models;
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Welcome to Pierre's Treats!</h1>
 </div>
 
 <h3>Flavors</h3>
@@ -22,6 +22,3 @@
     <li>@Html.ActionLink($"{treat.Name}", "Details", "treats", new { id = treat.TreatId })</li>
   }
 </ul>
-
-<p>@Html.ActionLink("Flavor Home", "Index", "flavors")</p>
-<p>@Html.ActionLink("Treat Home", "Index", "treats")</p>
