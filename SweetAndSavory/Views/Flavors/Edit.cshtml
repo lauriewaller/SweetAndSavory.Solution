@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavory.Models.Flavor
+
+<h2>Edit Flavor Details</h2>
+
+<hr />
+<h4>@Html.DisplayFor(model => model.Name)</h4>
+<br>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+  @Html.Label("Name")
+  @Html.EditorFor(model => model.Name)
+
+  <br>
+  <br>
+
+  @Html.Label("Connect to a Treat")
+  @Html.DropDownList("TreatId")
+
+  <br>
+  <br>
+  <input type="submit" value="Save Changes" required="true" />
+}
+
+
+<li>@Html.ActionLink("Back To Flavor List", "Index")</li>

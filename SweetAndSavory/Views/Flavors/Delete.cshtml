@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavory.Models.Flavor
+
+<h2>are you sure you want to delete this author?</h2>
+
+@Html.DisplayFor(model => model.Name)
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
+
+<br>
+
+@Html.ActionLink("Back to Flavor List", "Index")

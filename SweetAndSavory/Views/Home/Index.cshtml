@@ -1,8 +1,27 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using SweetAndSavory.Models;
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<h3>Flavors</h3>
+<ul>
+  @foreach (Flavor flavor in Model)
+  {
+    <li>@Html.ActionLink($"{flavor.Name}", "Details", "flavors", new { id = flavor.FlavorId })</li>
+  }
+</ul>
+
+<h3>Treats</h3>
+<ul>
+  @foreach (Treat treat in ViewBag.treatModel)
+  {
+    <li>@Html.ActionLink($"{treat.Name}", "Details", "treats", new { id = treat.TreatId })</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Flavor Home", "Index", "flavors")</p>
+<p>@Html.ActionLink("Treat Home", "Index", "treats")</p>
